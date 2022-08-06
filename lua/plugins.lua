@@ -1,9 +1,20 @@
 return require('packer').startup(function()
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    use 'mg979/vim-visual-multi'
+    use 'glepnir/dashboard-nvim'
+    -- use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+    use 'github/copilot.vim'
     -- treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     -- nord theme
+        -- tokyonight
+    use("folke/tokyonight.nvim")
     use 'shaunsingh/nord.nvim'
     use 'glepnir/zephyr-nvim'
     use {
@@ -27,4 +38,9 @@ return require('packer').startup(function()
     -- lspkind
     use 'onsails/lspkind-nvim'
     use("folke/lua-dev.nvim")
+    -- lualine
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 end)

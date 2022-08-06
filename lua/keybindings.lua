@@ -176,5 +176,46 @@ pluginKeys.cmp = function(cmp)
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
   }
 end
+-- Telescope
+map("n", "ff", ":Telescope find_files<CR>", opt)
+map("n", "fg", ":Telescope live_grep<CR>", opt)
+map("n", "fb", ":Telescope buffers<CR>", opt)
+map("n", "fh", ":Telescope help_tags<CR>", opt)
+-- Telescope 列表中 插入模式快捷键
+pluginKeys.telescopeList = {
+  i = {
+    -- 上下移动
+    ["<C-j>"] = "move_selection_next",
+    ["<C-k>"] = "move_selection_previous",
+    ["<C-n>"] = "move_selection_next",
+    ["<C-p>"] = "move_selection_previous",
+    -- 历史记录
+    ["<Down>"] = "cycle_history_next",
+    ["<Up>"] = "cycle_history_prev",
+    -- 关闭窗口
+    -- ["<esc>"] = actions.close,
+    ["<C-c>"] = "close",
+    -- 预览窗口上下滚动
+    ["<C-u>"] = "preview_scrolling_up",
+    ["<C-d>"] = "preview_scrolling_down",
+  },
+}
 
+-- 代码注释插件
+-- see ./lua/plugin-config/comment.lua
+pluginKeys.comment = {
+  -- Normal 模式快捷键
+  toggler = {
+    line = "gcc", -- 行注释
+    block = "gbc", -- 块注释
+  },
+  -- Visual 模式
+  opleader = {
+    line = "gc",
+    bock = "gb",
+  },
+}
+-- ctrl + /
+map("n", "<C-_>", "gcc", { noremap = false })
+map("v", "<C-_>", "gcc", { noremap = false })
 return pluginKeys

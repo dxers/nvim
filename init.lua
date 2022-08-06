@@ -1,0 +1,15 @@
+require('basic')
+require('keybindings')
+require('colorscheme')
+-- Packer插件管理
+require('plugins')
+-- 插件配置
+require('plugin-config/nvim-tree')
+require('plugin-config/bufferline')
+require('plugin-config/nvim-treesitter')
+require('plugin-config/dashboard')
+require('plugin-config/telescope')
+require('plugin-config/lualine')
+--lua require('lsp/setup')
+require('lsp/nvim-cmp')
+require('lsp/config')
